@@ -6,48 +6,64 @@ import ShoeCard from "../components/ShoeCard";
 import { shoes, statistics } from "../constants";
 
 const Hero = () => {
-
-  const [bigShoeImage, setBigShoeImage] = useState(bigShoe1)
+  const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
   return (
-    <section className="w-full flex flex-col xl:flex-row justify-center min-h-screen gap-10 max-container ">
+    <section
+      id="home"
+      className="w-full flex xl:flex-row flex-col justify-start min-h-screen gap-10 max-container"
+    >
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full max-xl:padding-x pt-28">
-        <p className="text-lg font-montserrat text-coral-red">
+        <p className="text-md font-montserrat text-coral-red">
           Our Summer Collection
         </p>
-        <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82] font-bold ">
-          <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">The New Arrival </span>
+        <h1 className="mt-6 font-palanquin text-[5rem] leading-[6.5rem]  max-sm:text-[4rem] max-sm:leading-[5.3rem]   font-bold ">
+          <span className="  xl:whitespace-nowrap relative z-10 lg:pr-10  bg-white">
+            The New Arrival
+          </span>
           <br />
-          <span className="text-coral-red inline-block mt-3">Nike</span> Shoes
+          <span className="text-coral-red inline-block">Nike </span> Shoes
         </h1>
-        <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
-          Discover stylish Nike arrivals, quality comfort and innovation for
-          your active live.
+
+        <p className="font-montserrat text-slate-gray text-md leading-7 mt-4 mb-7 sm:max-w-sm">
+          Discover stylish Nike arrivals, quality, comfort and innovation for
+          your active life.
         </p>
 
-        <Button label="Shop now" iconUrl={arrowRight} />
-        <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
+        <Button label={"Shop now"} iconUrl={arrowRight} />
+
+        <div className="flex justify-start items-start w-full mt-14 gap-16">
           {statistics.map((stat) => (
             <div key={stat.label}>
-              <p className="font-palanquin text-4xl font-bold">{stat.value}</p>
-              <p className="font-montserrat leading-7 text-slate-gray">{stat.label}</p>
+              <p className="font-palanquin text-[2rem] font-bold">
+                {stat.value}
+              </p>
+              <p className="leading-3 font-montserrat text-slate-gray text-sm">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="relative flex-1 flex justify-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-center bg-cover">
+      <div className="relative flex flex-1 justify-center items-center bg-primary bg-hero bg-color bg-center xl:min-h-screen max-xl:py-40">
+        <img
+          src={bigShoeImg}
+          alt="big shoe 1"
+          width={500}
+          height={400}
+          className="object-contain relative z-10"
+        />
 
-        <img src={bigShoeImage} alt="shoe collection" className="object-contain relative z-10" />
-
-            <div className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6">
-            {shoes.map((shoe, index) => (
-              <div key={index}>
-                <ShoeCard imgUrl={shoe} changeBigShoeImage={(shoe)=>{setBigShoeImage(shoe)}}
-                BigShoeImage={bigShoeImage}/>
-              </div>
-            ))}
-            </div>
-        
+        <div className="absolute -bottom-[10%] sm:left-[10%] max-sm:px-6 flex gap-4 sm:gap-6 ">
+          {shoes.map((shoe) => (
+            <ShoeCard
+              imageURL={shoe}
+              bigShoeImg={bigShoeImg}
+              changeBigShoeImg={setBigShoeImg}
+              key={shoe.bigShoe}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
