@@ -1,9 +1,14 @@
-import React from "react";
+import { motion } from "motion/react";
 import { star } from "../assets/icons";
 
 const PopularProductCard = ({ imgURL, name, price }) => {
   return (
-    <div className="flex flex-1 flex-col w-full max-sm:w-full">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.1, delay: 0.4, ease: "easeOut" }}
+      className="flex flex-1 flex-col w-full max-sm:w-full "
+    >
       <img src={imgURL} alt={name} className="w-[260px] h-[260px]" />
       <div className="mt-8 flex justify-start gap-2.5">
         <img src={star} alt="rating" width={20} height={20} />
@@ -17,7 +22,7 @@ const PopularProductCard = ({ imgURL, name, price }) => {
       <p className="mt-2 text-md text-coral-red font-semibold leading-normal font-montserrat">
         {price}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
