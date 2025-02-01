@@ -12,7 +12,7 @@ const menuVariants = {
     transition: { type: "spring", stiffness: 25, restDelta: 2 },
   },
   closed: {
-    clipPath: "circle(25px at 90% 8%)",
+    clipPath: "circle(20px at 90% 8%)",
     transition: { type: "spring", stiffness: 400, damping: 40 },
   },
 };
@@ -35,7 +35,7 @@ const Nav = () => {
 
   return (
     <header className="padding-x py-8 w-full absolute z-50">
-      <nav className="flex justify-between items-center max-container relative border py-4 h-min">
+      <nav className="flex justify-between items-center max-container relative py-4 h-min">
         <a href="/">
           <img src={headerLogo} alt="logo" height={20} width={120} />
         </a>
@@ -56,7 +56,7 @@ const Nav = () => {
 
         {/* Mobile Menu Toggle */}
         <div
-          className="hidden max-lg:block absolute right-4 top-5  z-50"
+          className="hidden max-lg:block absolute right-4 top-4  z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <img
@@ -72,7 +72,7 @@ const Nav = () => {
           initial={false}
           animate={isMenuOpen ? "open" : "closed"}
           variants={menuVariants}
-          className="flex flex-col justify-center items-start gap-6 rounded-md z-40 absolute top-0 right-0 bg-slate-800 p-8 w-64 h-96 lg:hidden  "
+          className="flex flex-col justify-center items-start gap-5 rounded-md z-40 absolute top-0 right-0 bg-slate-800 p-8 w-64 h-80 lg:hidden  "
         >
           {navLinks.map((item, i) => (
             <motion.li key={item.label} variants={itemVariants} custom={i}>
