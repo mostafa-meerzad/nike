@@ -4,6 +4,7 @@ import { bigShoe1 } from "../assets/images";
 import Button from "../components/Button";
 import ShoeCard from "../components/ShoeCard";
 import { shoes, statistics } from "../constants";
+import { motion } from "motion/react";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
@@ -46,7 +47,11 @@ const Hero = () => {
       </div>
 
       <div className="relative flex flex-1 justify-center items-center bg-primary bg-hero bg-color bg-center xl:min-h-screen max-xl:py-40">
-        <img
+        <motion.img
+          animate={{ scale: 1, rotate: 0 }}
+          initial={{ scale: 0.5, rotate: -10 }}
+          transition={{ duration: 0.3 }}
+          key={bigShoeImg}
           src={bigShoeImg}
           alt="big shoe 1"
           width={500}
