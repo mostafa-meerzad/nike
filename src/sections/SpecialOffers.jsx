@@ -1,12 +1,13 @@
+import { motion } from "motion/react";
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
 import Button from "../components/Button";
 
 const SpecialOffers = () => {
   return (
-    <section className="flex justify-wrap items-center max-xl:flex-col-reverse gap-10 max-container">
+    <section className="flex justify-wrap items-center max-xl:flex-col-reverse gap-10 max-container ">
       <div className="flex-1">
-        <img
+        <motion.img initial={{ opacity: 0 }} animate={{ opacity: 1, transition:{duration:1.3} }}
           src={offer}
           width={773}
           height={687}

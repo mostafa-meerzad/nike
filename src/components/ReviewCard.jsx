@@ -1,9 +1,12 @@
-import React from "react";
+import { motion } from "motion/react";
 import { star } from "../assets/icons";
 
-const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
+const ReviewCard = ({ imgURL, customerName, rating, feedback, variant }) => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <motion.div
+      variants={variant}
+      className="flex justify-center items-center flex-col"
+    >
       <img
         src={imgURL}
         alt="customer"
@@ -14,8 +17,10 @@ const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
         <img src={star} width={24} height={24} className="object-contain m-0" />
         <p className="text-xl text-slate-gray font-montserrat">({rating})</p>
       </div>
-      <h3 className="mt-1 font text-3xl text-center font-palanquin font-bold">{customerName}</h3>
-    </div>
+      <h3 className="mt-1 font text-3xl text-center font-palanquin font-bold">
+        {customerName}
+      </h3>
+    </motion.div>
   );
 };
 
